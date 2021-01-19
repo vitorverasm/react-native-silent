@@ -11,9 +11,20 @@ RCT_REMAP_METHOD(multiply,
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
+    NSNumber *result = @([a floatValue] * [b floatValue]);
+    
+    resolve(result);
+}
 
-  resolve(result);
+// Example method
+// See // https://reactnative.dev/docs/native-modules-ios
+RCT_REMAP_METHOD(isEnabled,
+                 withResolver:(RCTPromiseResolveBlock)resolve
+                 withRejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSString *result = @("true");
+    
+    resolve(result);
 }
 
 @end
