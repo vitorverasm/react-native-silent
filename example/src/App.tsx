@@ -23,7 +23,9 @@ export default function App() {
       setSilentStatus(status);
     });
     () => {
-      Silent.removeListener(listener);
+      if (listener) {
+        Silent.removeListener(listener);
+      }
     };
   }, []);
 
