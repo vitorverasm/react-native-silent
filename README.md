@@ -2,6 +2,8 @@
 
 Library to detect if the device is in silent mode
 
+### WARNING!! This library only works for android, iOS still work in progress!
+
 ## Installation
 
 ```sh
@@ -13,9 +15,27 @@ npm install react-native-silent
 ```js
 import Silent from "react-native-silent";
 
-// ...
+// ...Inside your functional component
 
-const result = await Silent.multiply(3, 7);
+  const getIsEnabled = () => {
+    Silent.isEnabled().then((value) => {
+      console.log('isEnabledValue changed', value);
+      setIsEnabledValue(value);
+    });
+  };
+
+  React.useEffect(() => {
+    getIsEnabled();
+    const listener = Silent.addListener((status) => {
+      console.log('silentStatus changed', status);
+      setSilentStatus(status);
+    });
+    () => {
+      if (listener) {
+        Silent.removeListener(listener);
+      }
+    };
+  }, []);
 ```
 
 ## Contributing
