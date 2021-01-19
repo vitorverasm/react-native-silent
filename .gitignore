@@ -46,6 +46,11 @@ node_modules/
 npm-debug.log
 yarn-debug.log
 yarn-error.log
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 
 # BUCK
 buck-out/
