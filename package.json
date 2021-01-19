@@ -1,6 +1,6 @@
 {
   "name": "react-native-silent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Library to detect if the device is in silent mode",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
